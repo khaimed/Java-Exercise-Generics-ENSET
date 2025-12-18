@@ -102,9 +102,9 @@ class MetierProduitImpl implements IMetier<Produit>{
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Produit p1 = new Produit(265, "clavier", "logitech", 250.25, "clavier sans fils", 20);
-        Produit p2 = new Produit(336, "souris", "logitech", 150.25, "souris sans fils", 12);
-        Produit p3 = new Produit(25, "casque", "Reddragon", 120.25, "casque sans fils", 18);
+        Produit p1 = new Produit(265, "Clavier", "Logitech", 250.25, "Clavier sans fils", 20);
+        Produit p2 = new Produit(336, "Souris", "Logitech", 150.25, "Souris sans fils", 12);
+        Produit p3 = new Produit(25, "Casque", "Reddragon", 120.25, "Casque sans fils", 18);
         MetierProduitImpl metier = new MetierProduitImpl();
         metier.add(p1);
         metier.add(p2);
@@ -127,7 +127,8 @@ public class Main {
                         System.out.println("La liste des produits est vide.\n");
                         break;
                     }
-                    System.out.println(metier.getAll() + "\n");
+                    System.out.println("|   ID  |   Nom |   Marque  |   Prix    |   Description    |    Nombre Stock    |");
+                    metier.getAll().forEach(System.out::println);
                 }
                 case 2 -> {
                     System.out.print("Entrer l'id du produit à rechercher: ");
@@ -137,7 +138,6 @@ public class Main {
                         break;
                     }
                     System.out.println(metier.findById(id));
-                    break;
                 }
                 case 3 -> {
                     System.out.print("Entrer ID du produit: ");
