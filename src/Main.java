@@ -122,14 +122,14 @@ public class Main {
             int choix = scanner.nextInt();
 
             switch (choix) {
-                case 1:
+                case 1 -> {
                     if(metier.getAll().isEmpty()){
                         System.out.println("La liste des produits est vide.\n");
                         break;
                     }
                     System.out.println(metier.getAll() + "\n");
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     System.out.print("Entrer l'id du produit à rechercher: ");
                     long id = scanner.nextLong();
                     if (metier.findById(id) == null) {
@@ -138,7 +138,8 @@ public class Main {
                     }
                     System.out.println(metier.findById(id));
                     break;
-                case 3:
+                }
+                case 3 -> {
                     System.out.print("Entrer ID du produit: ");
                     int id_prod = scanner.nextInt();
                     if(metier.findById(id_prod) != null){
@@ -162,9 +163,9 @@ public class Main {
                     int nbrStock = scanner.nextInt();
 
                     metier.add(new Produit(id_prod, nom, marque, prix, description, nbrStock));
-                    break;
+                }
 
-                case 4:
+                case 4 -> {
                     System.out.print("Entrer ID du produit: ");
                     int id_to_remove = scanner.nextInt();
                     if(metier.findById(id_to_remove) == null){
@@ -173,14 +174,14 @@ public class Main {
                     }
 
                     metier.delete(id_to_remove);
-                    break;
+                }
 
-                case 5:
+                case 5 -> {
                     System.out.println("Au revoir");
                     return;
+                }
 
-                default:
-                    System.out.println("Choix invalid");
+                default -> System.out.println("Choix invalid");
             }
         }
 
